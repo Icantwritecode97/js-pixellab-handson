@@ -19,10 +19,45 @@
 
 <body>
 
-
-
+  <form
+    class="surface-form"
+    action=""
+  >
+    <fieldset>
+      <legend>
+        Calculator pentru suprafata dreptunghiului
+      </legend>
+      <label for="length">Lungime:</label>
+      <input
+        type="text"
+        name="length"
+        id="length"
+        placeholder="Lungime"
+      >
+      <label for="width">Latime:</label>
+      <input
+        type="text"
+        name="width"
+        id="width"
+        placeholder="Latime"
+      >
+      <label for="height">Latime:</label>
+      <input
+        type="text"
+        name="height"
+        id="height"
+        placeholder="Inaltime"
+      >
+      <button
+        type="submit"
+        title="Calculeaza"
+      >Calculeaza</button>
+      <p>
+        <span id="result"></span>
+      </p>
+    </fieldset>
+  </form>
   <script src="app.js"></script>
-
   <div
     class="pixeltab-host"
     id="js01-01-03"
