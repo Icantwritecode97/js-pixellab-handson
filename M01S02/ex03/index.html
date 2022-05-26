@@ -17,16 +17,24 @@
   <script src="https://pixellab.ro/js/pixeltab/static/js/pixeltab-top.js"></script>
 </head>
 
-<body>
+<body onload="alert('Bine ai venit pe acest site')">
+  <!-- <body onload="console.log(prompt('Care este numele tau?'))"> -->
 
+  <button
+    onclick="alert('Bine ai venit la pixellab')"
+    title="Hello"
+  >Hello!</button>
 
-  <script src="./../vendor/utils.js"></script>
-  <script src="./../js/app.js"></script>
-  <div
-    class="pixeltab-host"
-    id="js01-02-04"
-  ></div>
-  <script src="https://pixellab.ro/js/pixeltab/static/js/pixeltab.js"></script>
+  <button
+    onclick="alert('Bine ai apasat pe acest buton!')"
+    title="Hello"
+  >Hello!</button>
+
+  <button
+    onclick="alert('M-ai apasat')"
+    onmouseover="console.log('Apasa-ma')"
+    title="Apasa-ma Hello"
+  >Hello!</button>
 </body>
 
 </html>
