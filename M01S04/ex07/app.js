@@ -21,6 +21,7 @@ var friends = [
   },
 ];
 
+
 console.warn(`
   Folosind o bucla for afiseaza proprietatea
   surname a tuturor obiectelor din arrayul friends.
@@ -48,7 +49,6 @@ for (var i = 0; i < friendsLength; i++) {
 
   console.log(friend.surname + ' ' + friend.name);
 }
-
 console.warn(`
 Folosind keywordul continue, afiseaza numele complet
 inversat al prietenilor, doar daca numarul de caractere
@@ -67,6 +67,29 @@ for (var i = 0; i < friendsLength; i++) {
   );
 }
 
-for (var i = 0; i < 99; i++) {
-  console.log(i);
+console.warn(`
+Folosind o bucla for afiseaza proprietatea name a tuturor obiectelor din arrayul friends.
+`);
+for (var i = 0; i < friendsLength; i++) {
+  var friend = friends[i];
+  console.log(friend.name);
+}
+console.warn(`
+5.Afiseaza numele complet al tuturor prietenilor.`);
+for (var i = 0; i < friendsLength; i++) {
+  var friend = friends[i];
+  console.log(friend.name + ' ' + friend.surname);
+}
+console.warn(`
+Folosind keywordul break, afiseaza numele complet al prietenilor dar opeste bucla la primul surname care are numarul de caractere mai mare sau egal decat 9 si afiseaz-l intr-o propozitie de forma “M-am oprit la Nume Prenume.”.
+`);
+var friendsLength = friends.length;
+for (var i = 0; i < friendsLength; i++) {
+  var friend = friends[i];
+  var surnameLength=friend.surname.length;
+  if (surnameLength === 9) {
+    console.log('M-am oprit la ' + friend.surname + ' ' + friend.name + '.');
+    break;
+  }
+  console.log(friend.surname + ' ' + friend.name);
 }
