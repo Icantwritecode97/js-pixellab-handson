@@ -1,29 +1,71 @@
-function calculateSurface(L, l) {
-  const argumentsCount = arguments.length;
+const car = {
+  make: 'Audi',
+  color: 'black',
+  wheels: 4,
+  speed: 50,
+  topSpeed: 160,
+  topReverseSpeed: -50,
+  isTrunkOpen: false,
+  areLightsOn: false,
+  stop: function () {
+    this.speed = 0;
+    console.log(this.speed);
+  },
+  setSpeed: function (speed) {
+    if (speed > this.topSpeed) {
+      this.speed = this.topSpeed;
 
-  if (argumentsCount === 2) {
-    return L * l;
-  }
+      return;
+    }
 
-  if (argumentsCount === 1) {
-    return L ** 2;
-  }
+    // early return
+    if (speed < this.topReverseSpeed) {
+      this.speed = this.topReverseSpeed;
 
-  console.warn('Invalid signature');
-}
+      return;
+    }
 
-const calculateSquareSurface = (length) => {
-  const surface = calculateSurface(length);
+    this.speed = speed;
+  },
+  turnLightsOn: function () {
+    this.areLightsOn = true;
+  },
+  turnLightsOff: function () {
+    this.areLightsOn = false;
+  },
+  flashLights: function () {
+    const self = this;
+    self.turnLightsOn();
 
-  return surface;
+    setTimeout(function () {
+      self.turnLightsOff();
+    }, 3000);
+  },
+  openTrunk: function () {
+    this.isTrunkOpen = true;
+  },
+  closeTrunk: function () {
+    this.isTrunkOpen = false;
+  },
+  accelerate: function () {
+    this.speed++;
+  },
+  decelerate: function () {
+    this.speed--;
+  },
 };
 
-console.log(calculateSquareSurface(4));
+console.warn(`
+  Afiseaza propozitia: "Masina era marca make si se deplasa cu speed km/h.".
+`);
+console.log(`Masina era marca ${car.make} si se deplasa cu ${car.speed} km/h.`);
 
-const calculateRectangleSurface = (length, width) => {
-  const surface = calculateSurface(length, width);
-
-  return surface;
-};
-
-console.log(calculateRectangleSurface(8, 9));
+console.warn(
+  `Decelereaza masina cu 5 unitati apoi afisaza propozitia: "Viteza noua este speed km/h".`,
+);
+car.decelerate();
+car.decelerate();
+car.decelerate();
+car.decelerate();
+car.decelerate();
+console.log(`Viteza noua este ${car.speed} km/h.`);
